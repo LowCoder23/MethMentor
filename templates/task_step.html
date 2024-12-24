@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ task['title'] }} – Шаг {{ step_number }}</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <div class="logo">MathMentor</div>
+        <nav>
+            <a href="{{ url_for('dashboard') }}">Личный кабинет</a>
+            <a href="{{ url_for('logout') }}">Выйти</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h1>{{ task['title'] }}</h1>
+        <h2>Шаг {{ step_number }} из {{ task['steps']|length }}</h2>
+
+        <p>{{ step['question'] }}</p>
+
+        <!-- Если был неправильный ответ -->
+        {% if error_message %}
+            <div class="error-message">
+                <strong>{{ error_message }}</strong>
+            </div>
+        {% endif %}
+
+        <form method="post">
+            <label for="answer">Ваш ответ:</label>
+            <input type="text" id="answer" name="answer" required>
+            <button type="submit" class="button">Ответить</button>
+        </form>
+    </div>
+
+    <footer>
+        MathMentor &copy; 2024
+    </footer>
+</body>
+</html>

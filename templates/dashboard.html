@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Личный кабинет</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <!-- Заголовок -->
+    <header>
+        <div class="logo">MathMentor</div>
+        <nav>
+            <a href="{{ url_for('dashboard') }}">Личный кабинет</a>
+            {% if user['status'] == 'учитель' %}
+                <a href="{{ url_for('task_list') }}">Все задания</a>
+            {% endif %}
+            <a href="{{ url_for('logout') }}">Выйти</a>
+        </nav>
+    </header>
+
+    <!-- Основной контент -->
+    <div class="container">
+        <h1>Добро пожаловать, {{ user['first_name'] }}!</h1>
+
+        <!-- Секция для учеников -->
+        {% if user['status'] == 'ученик' %}
+            <h2>Ваши задания:</h2>
+            {% if user['tasks_assigned'] %}
+                <ul>
+                    {% for task_id in user['tasks_assigned'] %}
+                        <li>
+                            <a href="{{ url_for('start_task', task_id=task_id) }}" class="task-link">
+                                {{ tasks[task_id - 1]['title'] }}: {{ tasks[task_id - 1]['description'] }}
+                            </a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p>Вам пока не назначены задания.</p>
+            {% endif %}
+        {% endif %}
+
+        <!-- Секция для учителей -->
+        {% if user['status'] == 'учитель' %}
+            <h2>Ваши классы:</h2>
+            {% for class_name, students in students_by_class.items() %}
+                <div class="accordion-section">
+                    <div class="accordion-header" onclick="toggleAccordion(event)">
+                        Класс {{ class_name }}
+                    </div>
+                    <div class="accordion-content">
+                        <ul>
+                            {% for student in students %}
+                                <li>
+                                    {{ student['first_name'] }} {{ student['last_name'] }}
+                                    <div>
+                                        Выполнено: {{ student['statistics']['completed_tasks'] }},
+                                        Ошибок: {{ student['statistics']['errors'] }}
+                                        <br>
+                                        <a href="{{ url_for('view_tasks', username=student['username']) }}" class="button">
+                                            Посмотреть задания
+                                        </a>
+                                    </div>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            {% endfor %}
+        {% endif %}
+        
+        <!-- Секция для администратора -->
+        {% if user['status'] == 'админ' %}
+            <h2>Список пользователей</h2>
+            <ul>
+                {% for u in users %}
+                    <li>
+                        {{ u['username'] }} - {{ u['status'] }} ({{ u['school'] or 'Нет школы' }})
+                    </li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    </div>
+
+    <!-- Подвал -->
+    <footer>
+        MathMentor &copy; 2024
+    </footer>
+
+    <!-- Скрипт для аккордеона -->
+    <script>
+        function toggleAccordion(event) {
+            var content = event.target.nextElementSibling;
+            if (content.style.display === "block") {
+                content.style.display = "none";
+            } else {
+                content.style.display = "block";
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,202 @@
+/* Общие настройки */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+/* Заголовок */
+header {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+}
+
+header .logo {
+    display: inline-block;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+header nav {
+    display: inline-block;
+    float: right;
+}
+
+header nav a {
+    margin-left: 15px;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+header nav a:hover {
+    color: #ddd;
+}
+
+/* Основной контент */
+.content {
+    padding: 20px;
+    margin-top: 15px;
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 10px 20px;
+    background: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+}
+
+/* Кнопки */
+.button {
+    display: inline-block;
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    margin: 10px 5px;
+    border-radius: 3px;
+    text-decoration: none;
+    text-align: center;
+}
+
+.button:hover {
+    background-color: #45a049;
+    color: white;
+}
+
+/* Ссылки на задания */
+.task-link {
+    color: #4CAF50;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.task-link:hover {
+    color: #45a049;
+    text-decoration: underline;
+}
+
+
+.task-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.task-list .button {
+    width: 200px;
+    text-align: center;
+    padding: 10px;
+}
+
+/* Футер */
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #333;
+    color: white;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Аккордеон */
+.accordion-section {
+    background-color: #eee;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+.accordion-header {
+    background-color: #ccc;
+    padding: 10px;
+    cursor: pointer;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.accordion-content {
+    display: none;
+    padding: 10px;
+}
+
+.accordion-content ul {
+    list-style: none;
+    padding: 0;
+}
+/* Блок с сообщением об ошибке */
+.error-message {
+    color: red;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+.error-list {
+    color: #333;
+    margin-top: 20px;
+    padding-left: 0;
+    list-style: none;
+}
+
+.error-list li {
+    margin-bottom: 10px;
+}
+/* Стиль уведомления о выдаче нового задания */
+.notification {
+    background-color: #f9edbe;
+    color: #856404;
+    padding: 15px;
+    border: 1px solid #ffeeba;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+/* Список ошибок */
+.error-list {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 20px;
+}
+
+.error-list li {
+    background: #f8d7da;
+    color: #721c24;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #f5c6cb;
+}
+
+.error-list li strong {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+/* Кнопки */
+.button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+.button:hover {
+    background-color: #45a049;
+    color: white;
+}

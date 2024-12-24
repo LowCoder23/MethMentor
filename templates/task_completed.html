@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ task['title'] }} – Завершено</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <div class="logo">MathMentor</div>
+        <nav>
+            <a href="{{ url_for('dashboard') }}">Личный кабинет</a>
+            <a href="{{ url_for('task_list') }}">Все задания</a>
+            <a href="{{ url_for('logout') }}">Выйти</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h1>Поздравляем! Вы завершили задание: {{ task['title'] }}</h1>
+
+        <!-- Уведомление о выдаче дополнительного задания -->
+        {% if message %}
+            <div class="notification" style="font-size: 16px; background-color: #f9edcc; padding: 15px; margin-bottom: 20px; border: 1px solid #eecead; border-radius: 5px; font-weight: bold;">
+                {{ message | safe }}
+            </div>
+        {% endif %}
+
+        <h2>Результаты:</h2>
+        <p>Правильных ответов: {{ correct_answers }} из {{ total_steps }}</p>
+
+        {% if errors %}
+            <h3>Ошибки:</h3>
+            <ul class="error-list">
+                {% for error in errors %}
+                    <li class="error-item">
+                        <strong>Шаг {{ error['step_number'] }}:</strong> {{ error['question'] }}<br>
+                        Ваш ответ: <span style="color: red;">{{ error['user_answer'] }}</span><br>
+                        Правильный ответ: <span style="color: green;">{{ error['correct_answer'] }}</span>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>Поздравляем! Вы ответили на все вопросы правильно!</p>
+        {% endif %}
+
+        <!-- Кнопки -->
+        <div class="button-group">
+            <a href="{{ url_for('dashboard') }}" class="button">В личный кабинет</a>
+        </div>
+    </div>
+
+    <footer>
+        MathMentor &copy; 2024 Николаев Еркен
+    </footer>
+</body>
+</html>

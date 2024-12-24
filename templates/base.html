@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>{% block title %}MathMentor{% endblock %}</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>MathMentor</h1>
+        </div>
+        <nav>
+            <a href="/">Главная</a>
+            {% if session.get('username') %}
+                <a href="/dashboard">Личный кабинет</a>
+                <a href="/logout">Выйти</a>
+            {% endif %}
+        </nav>
+    </header>
+    <div class="content">
+        {% block content %}{% endblock %}
+    </div>
+    <footer>
+        <p>&copy; 2024 MathMentor. Николаев Еркен.</p>
+    </footer>
+</body>
+</html>

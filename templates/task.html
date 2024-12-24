@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <h2>{{ task.title }}</h2>
+    <p>{{ task.description }}</p>
+    
+    <form method="POST">
+        <p>{{ task.steps[current_step]['question'] }}</p>
+        <input type="hidden" name="current_step" value="{{ current_step }}">
+        <input type="hidden" name="total_errors" value="{{ total_errors }}">
+        <input type="text" name="user_answer" placeholder="Ваш ответ" required>
+        <button type="submit">Ответить</button>
+    </form>
+
+    {% if error_message %}
+        <p style="color: red;">{{ error_message }}</p>
+    {% endif %}
+</div>
+{% endblock %}

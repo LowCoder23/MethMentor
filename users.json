@@ -1,0 +1,89 @@
+[
+    {
+        "username": "student1",
+        "password": "123",
+        "first_name": "Иван1",
+        "last_name": "Иванов",
+        "class": "10A",
+        "school": "СУНЦ",
+        "status": "ученик",
+        "tasks_assigned": [],
+        "completed_tasks": [
+            1,
+            2
+        ],
+        "statistics": {
+            "completed_tasks": 6,
+            "errors": 17
+        }
+    },
+    {
+        "username": "student2",
+        "password": "123",
+        "first_name": "Иван2",
+        "last_name": "Иванов",
+        "class": "10МИТ",
+        "school": "СУНЦ",
+        "status": "ученик",
+        "tasks_assigned": [
+            1,
+            2,
+            4
+        ],
+        "completed_tasks": [
+            1
+        ],
+        "statistics": {
+            "completed_tasks": 5,
+            "errors": 12
+        }
+    },
+    {
+        "username": "student3",
+        "password": "123",
+        "first_name": "Иван3",
+        "last_name": "Иванов",
+        "class": "10ФТ",
+        "school": "СУНЦ",
+        "status": "ученик",
+        "tasks_assigned": [
+            1,
+            2
+        ],
+        "completed_tasks": [
+            1
+        ],
+        "statistics": {
+            "completed_tasks": 5,
+            "errors": 12
+        }
+    },
+    {
+        "username": "teacher1",
+        "password": "123",
+        "first_name": "Еркен",
+        "last_name": "Николаев",
+        "class": null,
+        "school": "СУНЦ",
+        "status": "учитель",
+        "tasks_assigned": [],
+        "completed_tasks": [
+            1
+        ],
+        "statistics": null
+    },
+    {
+        "username": "admin",
+        "password": "123",
+        "first_name": "Админ",
+        "last_name": "Админов",
+        "class": null,
+        "school": null,
+        "status": "админ",
+        "tasks_assigned": [],
+        "completed_tasks": [
+            1
+        ],
+        "statistics": null
+    }
+]

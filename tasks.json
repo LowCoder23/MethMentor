@@ -1,0 +1,32 @@
+[
+    {
+        "id": 1,
+        "title": "Линейные уравнения",
+        "description": "Решение простых линейных уравнений",
+        "steps": [
+            {"question": "2x + 3 = 7. Найдите x.", "answer": "2"},
+            {"question": "5x - 10 = 20. Найдите x.", "answer": "6"}
+        ],
+        "similar_task_id": 2
+    },
+    {
+        "id": 2,
+        "title": "Сложные уравнения",
+        "description": "Решение более сложных линейных уравнений",
+        "steps": [
+            {"question": "3x + 4 = 19. Найдите x.", "answer": "5"},
+            {"question": "8x - 6 = 18. Найдите x.", "answer": "3"}
+        ],
+        "similar_task_id": 1
+    },
+    {
+        "id": 3,
+        "title": "Квадратные уравнения",
+        "description": "Решение квадратных уравнений",
+        "steps": [
+            {"question": "x^2 - 5x + 6 = 0. Найдите x1 и x2.", "answer": "2,3"},
+            {"question": "x^2 - 4 = 0. Найдите x1 и x2.", "answer": "2,-2"}
+        ],
+        "similar_task_id": null
+    }
+]

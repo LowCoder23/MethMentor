@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Детали задания</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <div class="logo">MathMentor</div>
+        <nav>
+            <a href="{{ url_for('task_list') }}">Все задания</a>
+            <a href="{{ url_for('dashboard') }}">Личный кабинет</a>
+            <a href="{{ url_for('logout') }}">Выйти</a>
+        </nav>
+    </header>
+    <div class="container">
+        <h1>Детали задания: {{ task['title'] }}</h1>
+        <p><strong>Описание:</strong> {{ task['description'] }}</p>
+        <h2>Шаги:</h2>
+        <ul>
+            {% for step in task['steps'] %}
+                <li>{{ step['question'] }} - Ответ: {{ step['answer'] }}</li>
+            {% endfor %}
+        </ul>
+        <a href="{{ url_for('task_list') }}" class="button">Назад</a>
+    </div>
+    <footer>
+        MathMentor &copy; 2024
+    </footer>
+</body>
+</html>

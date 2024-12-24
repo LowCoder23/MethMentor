@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Список заданий</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <div class="logo">Учебная платформа</div>
+        <nav>
+            <a href="{{ url_for('dashboard') }}">Личный кабинет</a>
+            <a href="{{ url_for('logout') }}">Выйти</a>
+        </nav>
+    </header>
+    <div class="container">
+        <h1>Список всех заданий</h1>
+        <ul>
+            {% for task in tasks %}
+                <li>
+                    <a href="{{ url_for('view_task', task_id=task['id']) }}" class="task-link">
+                        {{ task['title'] }}: {{ task['description'] }}
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+        <a href="{{ url_for('dashboard') }}" class="button">Назад в личный кабинет</a>
+    </div>
+    <footer>
+        Учебная платформа &copy; 2024
+    </footer>
+</body>
+</html>

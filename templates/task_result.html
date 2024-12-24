@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <h2>Тест завершён!</h2>
+    <p>Общее количество ошибок: {{ total_errors }}</p>
+    <a href="/practice" class="button">Назад к заданиям</a>
+</div>
+{% endblock %}
