@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <h2>Разделы заданий</h2>
+    
+    {% if session.role in ['учитель', 'админ'] %}
+    <div class="teacher-actions">
+        <a href="{{ url_for('add_section') }}" class="button">Добавить раздел</a>
+        <a href="{{ url_for('add_subsection') }}" class="button">Добавить подраздел</a>
+    </div>
+    {% endif %}
+    
+    <div class="sections-list">
+        {% for section in sections %}
+        <div class="section">
+            <h3>{{ section.title }}</h3>
+            
+            {% for subsection in section.subsections %}
+            <div class="subsection">
+                <h4>{{ subsection.title }}</h4>
+                
+                <div class="tasks-list">
+                    {% for task in subsection.tasks %}
+                    <div class="task">
+                        <a href="{{ url_for('view_task', task_id=task.id) }}">{{ task.title }}</a>
+                        <p>{{ task.description }}</p>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

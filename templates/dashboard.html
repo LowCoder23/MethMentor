@@ -11,9 +11,7 @@
         <div class="logo">MathMentor</div>
         <nav>
             <a href="{{ url_for('dashboard') }}">Личный кабинет</a>
-            {% if user['status'] == 'учитель' %}
-                <a href="{{ url_for('task_list') }}">Все задания</a>
-            {% endif %}
+            <a href="{{ url_for('task_list') }}">Все задания</a>
             <a href="{{ url_for('logout') }}">Выйти</a>
         </nav>
     </header>
@@ -66,6 +64,11 @@
                         </ul>
                     </div>
                 </div>
+                <!-- В секции для учителей, после accordion-section добавить: -->
+                <div class="teacher-actions">
+                    <a href="{{ url_for('add_task') }}" class="button">Добавить задание</a>
+                    <a href="{{ url_for('assign_task') }}" class="button">Назначить задание</a>
+                </div>
             {% endfor %}
         {% endif %}
         
@@ -84,7 +87,7 @@
 
     <!-- Подвал -->
     <footer>
-        MathMentor &copy; 2024
+        Учебная платформа &copy; 2024
     </footer>
 
     <!-- Скрипт для аккордеона -->

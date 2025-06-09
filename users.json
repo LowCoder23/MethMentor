@@ -5,16 +5,20 @@
         "first_name": "Иван1",
         "last_name": "Иванов",
         "class": "10A",
-        "school": "СУНЦ",
+        "school": "Школа №1",
         "status": "ученик",
-        "tasks_assigned": [],
+        "tasks_assigned": [
+            1,
+            2,
+            5
+        ],
         "completed_tasks": [
             1,
-            2
+            5
         ],
         "statistics": {
             "completed_tasks": 6,
-            "errors": 17
+            "errors": 14
         }
     },
     {

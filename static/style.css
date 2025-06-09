@@ -5,6 +5,32 @@
     padding: 0;
 }
 
+/* Формы */
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-control {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+/* Выпадающие списки */
+select.form-control {
+    height: 38px;
+}
+
+/* Кнопки для учителя */
+.teacher-actions {
+    margin-top: 20px;
+}
+
+.teacher-actions .button {
+    margin-right: 10px;
+}
+
 body {
     font-family: 'Roboto', sans-serif;
     margin: 0;
@@ -153,50 +179,4 @@ footer {
 
 .error-list li {
     margin-bottom: 10px;
-}
-/* Стиль уведомления о выдаче нового задания */
-.notification {
-    background-color: #f9edbe;
-    color: #856404;
-    padding: 15px;
-    border: 1px solid #ffeeba;
-    border-radius: 5px;
-    margin-bottom: 20px;
-}
-
-/* Список ошибок */
-.error-list {
-    list-style: none;
-    padding-left: 0;
-    margin-top: 20px;
-}
-
-.error-list li {
-    background: #f8d7da;
-    color: #721c24;
-    margin-bottom: 10px;
-    padding: 10px;
-    border-radius: 5px;
-    border: 1px solid #f5c6cb;
-}
-
-.error-list li strong {
-    display: block;
-    font-weight: bold;
-    margin-bottom: 5px;
-}
-
-/* Кнопки */
-.button {
-    background-color: #4CAF50;
-    color: white;
-    padding: 10px 20px;
-    text-decoration: none;
-    border-radius: 5px;
-    margin-right: 10px;
-}
-
-.button:hover {
-    background-color: #45a049;
-    color: white;
 }

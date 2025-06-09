@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <h2>Назначить задание ученику</h2>
+    <form method="POST" action="{{ url_for('assign_task') }}">
+        <div class="form-group">
+            <label for="username">Ученик:</label>
+            <select id="username" name="username" class="form-control" required>
+                {% for student in users %}
+                    <option value="{{ student.username }}">{{ student.first_name }} {{ student.last_name }} ({{ student.class }})</option>
+                {% endfor %}
+            </select>
+        </div>
+        
+        <div class="form-group">
+            <label for="task_id">Задание:</label>
+            <select id="task_id" name="task_id" class="form-control" required>
+                {% for task in tasks %}
+                    <option value="{{ task.id }}">{{ task.title }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        
+        <button type="submit" class="button">Назначить задание</button>
+    </form>
+</div>
+{% endblock %}

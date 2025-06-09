@@ -3,20 +3,25 @@
 {% block content %}
 <div class="container">
     <h2>Добавить новое задание</h2>
-    <form method="POST">
-        <input type="text" name="title" placeholder="Название задания" required>
-        <textarea name="description" rows="3" placeholder="Описание задания" required></textarea>
-        <textarea name="steps" rows="8" placeholder="Шаги (формат: Вопрос|Ответ, каждый шаг с новой строки)" required></textarea>
-        <button type="submit">Добавить</button>
+    <form method="POST" action="{{ url_for('add_task') }}">
+        <div class="form-group">
+            <label for="title">Название задания:</label>
+            <input type="text" id="title" name="title" class="form-control" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="description">Описание:</label>
+            <textarea id="description" name="description" class="form-control" required></textarea>
+        </div>
+        
+        <div class="form-group">
+            <label for="steps">Шаги задания (формат: вопрос|ответ):</label>
+            <textarea id="steps" name="steps" class="form-control" rows="5" required placeholder="Пример:
+Чему равно 2x, если 2x + 5 = 15?|10
+Чему равно x, если 2x = 10?|5"></textarea>
+        </div>
+        
+        <button type="submit" class="button">Добавить задание</button>
     </form>
-
-    <h3>Список добавленных заданий</h3>
-    <ul>
-        {% for task in tasks %}
-            <li>
-                <strong>{{ task.title }}</strong>: {{ task.description }}
-            </li>
-        {% endfor %}
-    </ul>
 </div>
 {% endblock %}
